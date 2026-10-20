@@ -1,0 +1,661 @@
+/* ================================
+   ADMIN PRODUCTS PAGE
+================================ */
+
+.admin-products-page {
+  min-height: 100vh;
+  padding: 40px 45px;
+  background: #f4f8f4;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.admin-products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.admin-products-header h1 {
+  margin: 0;
+  color: #075b2b;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.admin-products-header p {
+  margin-top: 8px;
+  color: #607080;
+  font-size: 16px;
+}
+
+
+/* ================================
+   BACK BUTTON
+================================ */
+
+.back-admin-btn {
+  background: #138a3d;
+  color: white;
+  text-decoration: none;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.back-admin-btn:hover {
+  background: #0d6f30;
+}
+
+
+/* ================================
+   EDIT PRODUCT CARD
+================================ */
+
+.admin-edit-product {
+  max-width: 850px;
+  margin: 0 auto 35px auto;
+  background: white;
+  padding: 30px 35px;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8e3;
+  box-sizing: border-box;
+}
+
+.admin-edit-product h2 {
+  margin: 0 0 25px 0;
+  color: #075b2b;
+  font-size: 25px;
+}
+
+
+/* ================================
+   EDIT FORM
+================================ */
+
+.admin-edit-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 25px;
+}
+
+.admin-form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.admin-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.admin-form-group label {
+  margin-bottom: 8px;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* ================================
+   INPUTS
+================================ */
+
+.admin-form-group input,
+.admin-form-group textarea,
+.admin-form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #cfd8d2;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.admin-form-group input:focus,
+.admin-form-group textarea:focus,
+.admin-form-group select:focus {
+  border-color: #138a3d;
+  box-shadow: 0 0 0 3px rgba(19, 138, 61, 0.12);
+}
+
+.admin-form-group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+
+/* ================================
+   EDIT BUTTONS
+================================ */
+
+.admin-edit-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.admin-save-btn,
+.admin-cancel-btn {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.admin-save-btn {
+  background: #138a3d;
+  color: white;
+}
+
+.admin-save-btn:hover {
+  background: #0d6f30;
+}
+
+.admin-cancel-btn {
+  background: #eef1ef;
+  color: #344054;
+}
+
+.admin-cancel-btn:hover {
+  background: #dfe5e1;
+}
+
+
+/* ================================
+   PRODUCT TABLE CONTAINER
+================================ */
+
+.admin-products-table-container {
+  width: 100%;
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   PRODUCT TABLE
+================================ */
+
+.admin-products-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+
+/* ================================
+   TABLE HEADER
+================================ */
+
+.admin-products-table thead {
+  background: #075b2b;
+  color: white;
+}
+
+.admin-products-table th {
+  padding: 15px 12px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   COLUMN WIDTHS
+================================ */
+
+/* # */
+
+.admin-products-table th:nth-child(1),
+.admin-products-table td:nth-child(1) {
+  width: 45px;
+}
+
+/* Image */
+
+.admin-products-table th:nth-child(2),
+.admin-products-table td:nth-child(2) {
+  width: 120px;
+}
+
+/* Product */
+
+.admin-products-table th:nth-child(3),
+.admin-products-table td:nth-child(3) {
+  width: 125px;
+}
+
+/* Category */
+
+.admin-products-table th:nth-child(4),
+.admin-products-table td:nth-child(4) {
+  width: 100px;
+}
+
+/* Farmer ID */
+
+.admin-products-table th:nth-child(5),
+.admin-products-table td:nth-child(5) {
+  width: 180px;
+}
+
+/* Price */
+
+.admin-products-table th:nth-child(6),
+.admin-products-table td:nth-child(6) {
+  width: 75px;
+}
+
+/* Quantity */
+
+.admin-products-table th:nth-child(7),
+.admin-products-table td:nth-child(7) {
+  width: 80px;
+}
+
+/* Description */
+
+.admin-products-table th:nth-child(8),
+.admin-products-table td:nth-child(8) {
+  width: 155px;
+}
+
+/* Action */
+
+.admin-products-table th:nth-child(9),
+.admin-products-table td:nth-child(9) {
+  width: 145px;
+}
+
+
+/* ================================
+   TABLE CELLS
+================================ */
+
+.admin-products-table td {
+  height: 105px;
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #475467;
+  font-size: 14px;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.admin-products-table tbody tr {
+  height: 105px;
+}
+
+.admin-products-table tbody tr:hover {
+  background: #f7faf7;
+}
+
+.admin-products-table td strong {
+  color: #075b2b;
+}
+
+
+/* ================================
+   IMAGE CELL
+================================ */
+
+.product-image-cell {
+  width: 120px;
+  height: 105px;
+  padding: 10px 12px !important;
+  vertical-align: middle !important;
+}
+
+
+/* ================================
+   FIXED IMAGE BOX
+================================ */
+
+.admin-product-image-box {
+  width: 90px;
+  height: 75px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #f1f5f2;
+
+  border-radius: 8px;
+  border: 1px solid #e1e5e2;
+
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   PRODUCT IMAGE
+================================ */
+
+.admin-product-image {
+  width: 90px;
+  height: 75px;
+
+  min-width: 90px;
+  min-height: 75px;
+  max-width: 90px;
+  max-height: 75px;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 7px;
+
+  background: #f1f1f1;
+}
+
+
+/* ================================
+   NO IMAGE
+================================ */
+
+.admin-no-image {
+  width: 90px;
+  height: 75px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f1f1f1;
+
+  border-radius: 7px;
+
+  font-size: 28px;
+
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   PRODUCT NAME
+================================ */
+
+.admin-product-name {
+  max-width: 125px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ================================
+   CATEGORY
+================================ */
+
+.admin-products-table td:nth-child(4) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ================================
+   FARMER ID
+================================ */
+
+.farmer-id-cell {
+  max-width: 180px;
+
+  word-break: break-all;
+  overflow-wrap: anywhere;
+
+  font-size: 12px !important;
+  font-weight: 600;
+
+  color: #087434;
+}
+
+
+/* ================================
+   DESCRIPTION
+================================ */
+
+.description-cell {
+  max-width: 155px;
+
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
+  line-height: 1.4;
+}
+
+
+/* ================================
+   PRICE
+================================ */
+
+.admin-products-table td:nth-child(6) {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+
+/* ================================
+   QUANTITY
+================================ */
+
+.admin-products-table td:nth-child(7) {
+  text-align: center;
+}
+
+.stock-available {
+  color: #087434;
+  font-weight: 700;
+}
+
+.stock-out {
+  color: #c62828;
+  font-weight: 700;
+}
+
+
+/* ================================
+   ACTION BUTTONS
+================================ */
+
+.product-action-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 7px;
+}
+
+.admin-edit-btn,
+.admin-delete-btn {
+  width: 105px;
+
+  border: none;
+
+  padding: 8px 10px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  box-sizing: border-box;
+
+  transition: 0.2s;
+}
+
+
+/* Edit */
+
+.admin-edit-btn {
+  background: #fff4df;
+  color: #b76b00;
+}
+
+.admin-edit-btn:hover {
+  background: #ffe7b5;
+}
+
+
+/* Delete */
+
+.admin-delete-btn {
+  background: #ffe7e7;
+  color: #c62828;
+}
+
+.admin-delete-btn:hover {
+  background: #ffd2d2;
+}
+
+
+/* ================================
+   LOADING / EMPTY / ERROR
+================================ */
+
+.admin-loading,
+.admin-empty,
+.admin-error {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.admin-error {
+  color: #c62828;
+  background: #fff1f1;
+}
+
+
+/* ================================
+   TABLE SCROLLBAR
+================================ */
+
+.admin-products-table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.admin-products-table-container::-webkit-scrollbar-track {
+  background: #eef2ef;
+  border-radius: 10px;
+}
+
+.admin-products-table-container::-webkit-scrollbar-thumb {
+  background: #a9b8ad;
+  border-radius: 10px;
+}
+
+.admin-products-table-container::-webkit-scrollbar-thumb:hover {
+  background: #7d9182;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 1100px) {
+
+  .admin-products-page {
+    padding: 30px 25px;
+  }
+
+  .admin-products-table {
+    min-width: 1050px;
+  }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+
+  .admin-products-page {
+    padding: 25px 15px;
+  }
+
+  .admin-products-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .admin-products-header h1 {
+    font-size: 30px;
+  }
+
+  .admin-products-header p {
+    font-size: 14px;
+  }
+
+  .back-admin-btn {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .admin-edit-product {
+    padding: 25px 20px;
+  }
+
+  .admin-edit-form {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-form-group.full-width,
+  .admin-edit-actions {
+    grid-column: auto;
+  }
+
+  .admin-edit-actions {
+    justify-content: stretch;
+  }
+
+  .admin-save-btn,
+  .admin-cancel-btn {
+    flex: 1;
+  }
+
+  .admin-products-table {
+    min-width: 1050px;
+  }
+}

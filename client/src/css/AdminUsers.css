@@ -1,0 +1,573 @@
+/* ================================
+   ADMIN USERS PAGE
+================================ */
+
+.admin-users-page {
+  min-height: 100vh;
+  padding: 40px 45px;
+  background: #f4f8f4;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.admin-users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.admin-users-header h1 {
+  margin: 0;
+  color: #075b2b;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.admin-users-header p {
+  margin-top: 8px;
+  color: #607080;
+  font-size: 16px;
+}
+
+
+/* ================================
+   BACK BUTTON
+================================ */
+
+.back-admin-btn {
+  background: #138a3d;
+  color: white;
+  text-decoration: none;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.back-admin-btn:hover {
+  background: #0d6f30;
+  transform: translateY(-1px);
+}
+
+
+/* ================================
+   ERROR
+================================ */
+
+.admin-error {
+  background: #fff1f1;
+  color: #c62828;
+  border: 1px solid #f3c5c5;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+/* ================================
+   LOADING
+================================ */
+
+.admin-loading {
+  background: white;
+  padding: 45px;
+  text-align: center;
+  border-radius: 14px;
+  color: #607080;
+  font-size: 17px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.loading-icon {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.admin-loading p {
+  margin: 0;
+}
+
+
+/* ================================
+   EMPTY
+================================ */
+
+.admin-empty {
+  background: white;
+  padding: 45px;
+  text-align: center;
+  border-radius: 14px;
+  color: #607080;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.empty-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.admin-empty h3 {
+  margin: 5px 0;
+  color: #075b2b;
+  font-size: 20px;
+}
+
+.admin-empty p {
+  margin: 8px 0 0;
+}
+
+
+/* ================================
+   TABLE CONTAINER
+================================ */
+
+.admin-users-table-container {
+  width: 100%;
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   TABLE
+================================ */
+
+.admin-users-table {
+  width: 100%;
+  min-width: 1200px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+
+/* ================================
+   TABLE HEADER
+================================ */
+
+.admin-users-table thead {
+  background: #075b2b;
+  color: white;
+}
+
+.admin-users-table th {
+  padding: 17px 12px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+/* ================================
+   COLUMN WIDTHS
+================================ */
+
+/* # */
+
+.admin-users-table th:nth-child(1),
+.admin-users-table td:nth-child(1) {
+  width: 45px;
+}
+
+
+/* Name */
+
+.admin-users-table th:nth-child(2),
+.admin-users-table td:nth-child(2) {
+  width: 145px;
+}
+
+
+/* Email */
+
+.admin-users-table th:nth-child(3),
+.admin-users-table td:nth-child(3) {
+  width: 210px;
+}
+
+
+/* Phone */
+
+.admin-users-table th:nth-child(4),
+.admin-users-table td:nth-child(4) {
+  width: 125px;
+}
+
+
+/* Address */
+
+.admin-users-table th:nth-child(5),
+.admin-users-table td:nth-child(5) {
+  width: 220px;
+}
+
+
+/* Role */
+
+.admin-users-table th:nth-child(6),
+.admin-users-table td:nth-child(6) {
+  width: 130px;
+}
+
+
+/* Created */
+
+.admin-users-table th:nth-child(7),
+.admin-users-table td:nth-child(7) {
+  width: 120px;
+}
+
+
+/* Action */
+
+.admin-users-table th:nth-child(8),
+.admin-users-table td:nth-child(8) {
+  width: 125px;
+}
+
+
+/* ================================
+   TABLE CELLS
+================================ */
+
+.admin-users-table td {
+  padding: 15px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #475467;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.admin-users-table tbody tr {
+  height: 72px;
+  transition: 0.2s;
+}
+
+.admin-users-table tbody tr:hover {
+  background: #f7faf7;
+}
+
+
+/* ================================
+   NUMBER
+================================ */
+
+.user-number {
+  color: #667085 !important;
+  font-weight: 600;
+}
+
+
+/* ================================
+   USER NAME
+================================ */
+
+.user-name {
+  color: #075b2b !important;
+  font-weight: 600;
+}
+
+.user-name strong {
+  color: #075b2b;
+}
+
+
+/* ================================
+   EMAIL
+================================ */
+
+.user-email {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+
+/* ================================
+   PHONE
+================================ */
+
+.user-phone {
+  white-space: nowrap;
+}
+
+
+/* ================================
+   ADDRESS
+================================ */
+
+.user-address {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+
+/* ================================
+   ROLE
+================================ */
+
+.user-role-cell {
+  position: relative;
+}
+
+.user-role-select {
+  width: 112px;
+  padding: 8px 9px;
+  border-radius: 7px;
+  border: 1px solid #d0d5d2;
+  background: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.user-role-select:focus {
+  border-color: #138a3d;
+  box-shadow: 0 0 0 3px rgba(19, 138, 61, 0.12);
+}
+
+.user-role-select:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+/* Customer */
+
+.user-role-select.customer {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+
+/* Farmer */
+
+.user-role-select.farmer {
+  background: #f0fdf4;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+
+/* Admin */
+
+.user-role-select.admin {
+  background: #faf5ff;
+  color: #7e22ce;
+  border-color: #e9d5ff;
+}
+
+
+/* Updating */
+
+.role-updating {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+  color: #667085;
+}
+
+
+/* ================================
+   CREATED DATE
+================================ */
+
+.user-created {
+  white-space: nowrap;
+  color: #667085 !important;
+}
+
+
+/* ================================
+   ACTION
+================================ */
+
+.user-action {
+  text-align: left;
+}
+
+
+/* ================================
+   DELETE BUTTON
+================================ */
+
+.delete-user-btn {
+  border: none;
+  background: #ffe7e7;
+  color: #c62828;
+  padding: 9px 13px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.delete-user-btn:hover:not(:disabled) {
+  background: #ffd2d2;
+  transform: translateY(-1px);
+}
+
+.delete-user-btn:disabled {
+  background: #eeeeee;
+  color: #999999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+
+/* ================================
+   MOBILE / TABLET
+================================ */
+
+@media (max-width: 900px) {
+
+  .admin-users-page {
+    padding: 25px 15px;
+  }
+
+  .admin-users-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .admin-users-header h1 {
+    font-size: 30px;
+  }
+
+  .admin-users-table {
+    min-width: 1200px;
+  }
+
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+  .admin-users-page {
+    padding: 20px 12px;
+  }
+
+  .admin-users-header h1 {
+    font-size: 26px;
+  }
+
+  .admin-users-header p {
+    font-size: 14px;
+  }
+
+  .back-admin-btn {
+    padding: 11px 16px;
+  }
+
+  .admin-users-table-container {
+    padding: 10px;
+  }
+
+}
+
+/* ================================
+   ROLE SELECT
+================================ */
+
+.user-role-select {
+  min-width: 115px;
+  padding: 7px 10px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s;
+}
+
+.user-role-select.customer {
+  background: #dbeafe;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+.user-role-select.farmer {
+  background: #dcfce7;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.user-role-select.admin {
+  background: #f3e8ff;
+  color: #7e22ce;
+  border-color: #e9d5ff;
+}
+
+.user-role-select:focus {
+  box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.15);
+}
+
+.user-role-select:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+/* ================================
+   ROLE UPDATING
+================================ */
+
+.role-updating {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+
+/* ================================
+   DELETE BUTTON
+================================ */
+
+.delete-user-btn {
+  border: none;
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 8px 13px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.delete-user-btn:hover {
+  background: #fecaca;
+  transform: translateY(-1px);
+}
+
+.delete-user-btn:disabled {
+  background: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+}

@@ -1,0 +1,33 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+client/dist/
+client/build/
+server/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/

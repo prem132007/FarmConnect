@@ -1,0 +1,372 @@
+/* ================================
+   ADMIN ORDERS PAGE
+================================ */
+
+.admin-orders-page {
+  min-height: 100vh;
+  padding: 40px 45px;
+  background: #f4f8f4;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.admin-orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.admin-orders-header h1 {
+  margin: 0;
+  color: #075b2b;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.admin-orders-header p {
+  margin-top: 8px;
+  color: #607080;
+  font-size: 16px;
+}
+
+
+/* ================================
+   HEADER ACTIONS
+================================ */
+
+.admin-orders-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* ================================
+   REFRESH BUTTON
+================================ */
+
+.refresh-orders-btn {
+  background: #138a3d;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.refresh-orders-btn:hover {
+  background: #0d6f30;
+  transform: translateY(-1px);
+}
+
+.refresh-orders-btn:disabled {
+  background: #138a3d;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ================================
+   BACK BUTTON
+   KEEPING YOUR ORIGINAL DESIGN
+================================ */
+
+.back-admin-btn {
+  background: #138a3d;
+  color: white;
+  text-decoration: none;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.back-admin-btn:hover {
+  background: #0d6f30;
+  transform: translateY(-1px);
+}
+
+
+/* ================================
+   TABLE CONTAINER
+================================ */
+
+.admin-orders-table-container {
+  width: 100%;
+  background: white;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+
+/* ================================
+   TABLE
+================================ */
+
+.admin-orders-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+
+/* ================================
+   TABLE HEADER
+================================ */
+
+.admin-orders-table thead {
+  background: #075b2b;
+  color: white;
+}
+
+.admin-orders-table th {
+  padding: 17px 14px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+/* ================================
+   TABLE CELLS
+================================ */
+
+.admin-orders-table td {
+  padding: 16px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #475467;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+
+/* ================================
+   TABLE ROW
+================================ */
+
+.admin-orders-table tbody tr {
+  transition: 0.2s;
+}
+
+.admin-orders-table tbody tr:hover {
+  background: #f7faf7;
+}
+
+.admin-orders-table td strong {
+  color: #075b2b;
+}
+
+
+/* ================================
+   ID COLUMNS
+================================ */
+
+.admin-orders-table td:nth-child(2),
+.admin-orders-table td:nth-child(3),
+.admin-orders-table td:nth-child(4),
+.admin-orders-table td:nth-child(5) {
+  font-size: 12px;
+  font-weight: 600;
+  color: #087434;
+  word-break: break-all;
+}
+
+
+/* ================================
+   QUANTITY
+================================ */
+
+.admin-orders-table td:nth-child(6) {
+  font-weight: 600;
+}
+
+
+/* ================================
+   TOTAL PRICE
+================================ */
+
+.admin-orders-table td:nth-child(7) {
+  color: #075b2b;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+
+/* ================================
+   STATUS SELECT
+================================ */
+
+.order-status-select {
+  min-width: 115px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s;
+}
+
+.order-status-select:focus {
+  box-shadow: 0 0 0 3px rgba(19, 138, 61, 0.12);
+}
+
+
+/* ================================
+   PENDING
+================================ */
+
+.status-pending {
+  background: #fff7df;
+  color: #a16207;
+  border-color: #facc15;
+}
+
+
+/* ================================
+   ACCEPTED
+================================ */
+
+.status-accepted {
+  background: #e8f7ed;
+  color: #15803d;
+  border-color: #86efac;
+}
+
+
+/* ================================
+   REJECTED
+================================ */
+
+.status-rejected {
+  background: #ffecec;
+  color: #b91c1c;
+  border-color: #fca5a5;
+}
+
+
+/* ================================
+   DELIVERED
+================================ */
+
+.status-delivered {
+  background: #e8f0ff;
+  color: #1d4ed8;
+  border-color: #93c5fd;
+}
+
+
+/* ================================
+   LOADING / EMPTY / ERROR
+================================ */
+
+.admin-loading,
+.admin-empty,
+.admin-error {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.admin-loading {
+  color: #607080;
+  font-size: 16px;
+}
+
+.admin-empty {
+  color: #607080;
+  font-size: 16px;
+}
+
+.admin-error {
+  color: #c62828;
+  background: #fff1f1;
+  border: 1px solid #fecaca;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+  .admin-orders-page {
+    padding: 30px 20px;
+  }
+
+  .admin-orders-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .admin-orders-header h1 {
+    font-size: 30px;
+  }
+
+  .admin-orders-header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .admin-orders-table {
+    min-width: 1050px;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .admin-orders-page {
+    padding: 25px 15px;
+  }
+
+  .admin-orders-header h1 {
+    font-size: 28px;
+  }
+
+  .admin-orders-header p {
+    font-size: 14px;
+  }
+
+  .admin-orders-header-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .refresh-orders-btn {
+    width: 100%;
+  }
+
+  .back-admin-btn {
+    padding: 12px 18px;
+    text-align: center;
+  }
+
+  .admin-orders-table-container {
+    padding: 12px;
+  }
+
+  .admin-orders-table {
+    min-width: 1050px;
+  }
+}
