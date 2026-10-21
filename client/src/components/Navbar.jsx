@@ -72,17 +72,11 @@ function Navbar() {
     };
 
     if (profileOpen) {
-      document.addEventListener(
-        "mousedown",
-        handleClickOutside
-      );
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener(
-        "mousedown",
-        handleClickOutside
-      );
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [profileOpen]);
 
@@ -235,19 +229,32 @@ function Navbar() {
       <div className="navbar-container">
 
         {/* =================================================
-            LOGO
+            BRAND: LOGO + NAME + TAGLINE
+            Other navbar elements remain unchanged.
         ================================================= */}
 
         <Link
           to="/"
           className="navbar-brand-custom"
           onClick={closeMenu}
+          aria-label="FarmConnect home"
         >
           <img
             src={logo}
-            alt="FarmConnect - Connect Grow Thrive"
+            alt="FarmConnect handshake and leaves logo"
             className="logo-banner"
           />
+
+          <span className="navbar-brand-text">
+            <span className="navbar-brand-name">
+              <span className="brand-farm">Farm</span>
+              <span className="brand-connect">Connect</span>
+            </span>
+
+            <span className="navbar-brand-tagline">
+              Connect • Grow • Thrive
+            </span>
+          </span>
         </Link>
 
         {/* =================================================
@@ -258,8 +265,9 @@ function Navbar() {
           type="button"
           className="mobile-menu-btn"
           onClick={toggleMobileMenu}
-          aria-label="Toggle navigation"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
+          aria-controls="navbar-navigation-menu"
         >
           {menuOpen ? "✕" : "☰"}
         </button>
@@ -269,13 +277,13 @@ function Navbar() {
         ================================================= */}
 
         <div
+          id="navbar-navigation-menu"
           className={
             menuOpen
               ? "navbar-menu show"
               : "navbar-menu"
           }
         >
-
           {/* =================================================
               MAIN NAVIGATION
           ================================================= */}
@@ -296,7 +304,6 @@ function Navbar() {
 
             {/* =================================================
                 DASHBOARD
-                KEEP THIS SEPARATE FROM PROFILE
             ================================================= */}
 
             {user && (
@@ -447,9 +454,7 @@ function Navbar() {
 
           <div className="navbar-right">
 
-            {/* =================================================
-                LANGUAGE
-            ================================================= */}
+            {/* LANGUAGE */}
 
             <div className="language-selector">
 
@@ -467,17 +472,9 @@ function Navbar() {
                 className="language-select"
                 aria-label={t("language")}
               >
-                <option value="en">
-                  English
-                </option>
-
-                <option value="hi">
-                  हिन्दी
-                </option>
-
-                <option value="mr">
-                  मराठी
-                </option>
+                <option value="en">English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="mr">मराठी</option>
               </select>
 
             </div>
@@ -490,9 +487,7 @@ function Navbar() {
 
               <div className="navbar-user-section">
 
-                {/* =================================================
-                    CART
-                ================================================= */}
+                {/* CART */}
 
                 {user.role === "customer" && (
                   <Link
@@ -504,18 +499,12 @@ function Navbar() {
                   </Link>
                 )}
 
-                {/* =================================================
-                    PROFILE DROPDOWN
-                    THIS REMAINS A PROFILE BUTTON
-                    NOT A DASHBOARD BUTTON
-                ================================================= */}
+                {/* PROFILE DROPDOWN */}
 
                 <div
                   className="profile-dropdown-wrapper"
                   ref={profileRef}
                 >
-
-                  {/* PROFILE BUTTON */}
 
                   <button
                     type="button"
@@ -525,20 +514,11 @@ function Navbar() {
                     aria-expanded={profileOpen}
                   >
 
-                    <span className="user-icon">
-                      👤
-                    </span>
+                    <span className="user-icon">👤</span>
 
                     <div className="user-details">
-
-                      <strong>
-                        {getUserName()}
-                      </strong>
-
-                      <small>
-                        {getRoleName()}
-                      </small>
-
+                      <strong>{getUserName()}</strong>
+                      <small>{getRoleName()}</small>
                     </div>
 
                     <span className="profile-arrow">
@@ -547,10 +527,6 @@ function Navbar() {
 
                   </button>
 
-                  {/* =================================================
-                      PROFILE DROPDOWN
-                  ================================================= */}
-
                   {profileOpen && (
 
                     <div
@@ -558,31 +534,15 @@ function Navbar() {
                       role="menu"
                     >
 
-                      {/* =================================================
-                          USER INFORMATION
-                      ================================================= */}
-
                       <div className="profile-dropdown-info">
-
-                        <h3>
-                          {getUserName()}
-                        </h3>
-
-                        <p>
-                          {user.email}
-                        </p>
-
+                        <h3>{getUserName()}</h3>
+                        <p>{user.email}</p>
                         <span className="profile-role-badge">
                           {getRoleName()}
                         </span>
-
                       </div>
 
-                      {/* MENU */}
-
                       <div className="profile-dropdown-menu">
-
-                        {/* PROFILE */}
 
                         <button
                           type="button"
@@ -592,16 +552,9 @@ function Navbar() {
                             navigate("/profile");
                           }}
                         >
-                          <span className="profile-dropdown-icon">
-                            👤
-                          </span>
-
-                          <span>
-                            {t("profile")}
-                          </span>
+                          <span className="profile-dropdown-icon">👤</span>
+                          <span>{t("profile")}</span>
                         </button>
-
-                        {/* DASHBOARD */}
 
                         <button
                           type="button"
@@ -611,16 +564,9 @@ function Navbar() {
                             navigate(getDashboardPath());
                           }}
                         >
-                          <span className="profile-dropdown-icon">
-                            📊
-                          </span>
-
-                          <span>
-                            {t("dashboard")}
-                          </span>
+                          <span className="profile-dropdown-icon">📊</span>
+                          <span>{t("dashboard")}</span>
                         </button>
-
-                        {/* MESSAGES */}
 
                         <button
                           type="button"
@@ -630,39 +576,21 @@ function Navbar() {
                             navigate("/messages");
                           }}
                         >
-                          <span className="profile-dropdown-icon">
-                            💬
-                          </span>
-
-                          <span>
-                            {t("messages")}
-                          </span>
+                          <span className="profile-dropdown-icon">💬</span>
+                          <span>{t("messages")}</span>
                         </button>
 
                       </div>
 
-                      {/* =================================================
-                          LOGOUT
-                      ================================================= */}
-
                       <div className="profile-dropdown-logout">
-
                         <button
                           type="button"
                           className="profile-logout-button"
                           onClick={handleLogout}
                         >
-
-                          <span className="profile-dropdown-icon">
-                            ↪
-                          </span>
-
-                          <span>
-                            {t("logout")}
-                          </span>
-
+                          <span className="profile-dropdown-icon">↪</span>
+                          <span>{t("logout")}</span>
                         </button>
-
                       </div>
 
                     </div>
@@ -675,9 +603,7 @@ function Navbar() {
 
             ) : (
 
-              /* =================================================
-                 NOT LOGGED IN
-              ================================================= */
+              /* NOT LOGGED IN */
 
               <div className="navbar-actions">
 
