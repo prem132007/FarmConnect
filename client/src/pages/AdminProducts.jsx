@@ -23,7 +23,7 @@ function AdminProducts() {
       setError("");
 
       const response = await fetch(
-        "http://farmconnect-backend-n6mx.onrender.com/api/products"
+        "https://farmconnect-backend-n6mx.onrender.com/api/products"
       );
 
       if (!response.ok) {
@@ -60,7 +60,7 @@ function AdminProducts() {
 
     try {
       const response = await fetch(
-        `http://farmconnect-backend-n6mx.onrender.com/api/products/${productId}`,
+        `https://farmconnect-backend-n6mx.onrender.com/api/products/${productId}`,
         {
           method: "DELETE",
         }
@@ -128,7 +128,7 @@ function AdminProducts() {
 
     try {
       const response = await fetch(
-        `http://farmconnect-backend-n6mx.onrender.com/api/products/${editingProduct._id}`,
+        `https://farmconnect-backend-n6mx.onrender.com/api/products/${editingProduct._id}`,
         {
           method: "PUT",
           headers: {
@@ -429,7 +429,7 @@ function AdminProducts() {
                     <div className="admin-product-image-box">
                       {product.image ? (
                         <img
-                          src={`http://farmconnect-backend-n6mx.onrender.com/uploads/${product.image}`}
+                          src={`https://farmconnect-backend-n6mx.onrender.com/uploads/${product.image}`}
                           alt={
                             product.productName ||
                             t("product")

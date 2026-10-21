@@ -49,7 +49,7 @@ function MyOrders() {
       }
 
       const response = await axios.get(
-        `http://farmconnect-backend-n6mx.onrender.com/api/orders/customer/${customerId}`
+        `https://farmconnect-backend-n6mx.onrender.com/api/orders/customer/${customerId}`
       );
 
       setOrders(Array.isArray(response.data) ? response.data : []);
@@ -92,7 +92,7 @@ function MyOrders() {
       }));
 
       const response = await axios.get(
-        `http://farmconnect-backend-n6mx.onrender.com/api/orders/customer/${customerId}/${orderId}/tracking`
+        `https://farmconnect-backend-n6mx.onrender.com/api/orders/customer/${customerId}/${orderId}/tracking`
       );
 
       setTrackingData((previous) => ({

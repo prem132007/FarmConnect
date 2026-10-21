@@ -25,7 +25,7 @@ function Products() {
       setLoading(true);
 
       const response = await axios.get(
-        "http://farmconnect-backend-n6mx.onrender.com/api/products"
+        "https://farmconnect-backend-n6mx.onrender.com/api/products"
       );
 
       setProducts(response.data);

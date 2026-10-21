@@ -35,7 +35,7 @@ function AdminUsers() {
       setError("");
 
       const response = await fetch(
-        "http://farmconnect-backend-n6mx.onrender.com/api/users"
+        "https://farmconnect-backend-n6mx.onrender.com/api/users"
       );
 
       if (!response.ok) {
@@ -86,7 +86,7 @@ function AdminUsers() {
 
     try {
       const response = await fetch(
-        `http://farmconnect-backend-n6mx.onrender.com/api/users/${userId}`,
+        `https://farmconnect-backend-n6mx.onrender.com/api/users/${userId}`,
         {
           method: "DELETE",
         }
@@ -143,7 +143,7 @@ function AdminUsers() {
       setUpdatingUser(userId);
 
       const response = await fetch(
-        `http://farmconnect-backend-n6mx.onrender.com/api/users/${userId}/role`,
+        `https://farmconnect-backend-n6mx.onrender.com/api/users/${userId}/role`,
         {
           method: "PUT",
           headers: {

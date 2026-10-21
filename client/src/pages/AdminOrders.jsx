@@ -22,7 +22,7 @@ function AdminOrders() {
       setError("");
 
       const response = await fetch(
-        "http://farmconnect-backend-n6mx.onrender.com/api/orders/admin"
+        "https://farmconnect-backend-n6mx.onrender.com/api/orders/admin"
       );
 
       if (!response.ok) {
@@ -58,7 +58,7 @@ function AdminOrders() {
       setUpdatingOrder(orderId);
 
       const response = await fetch(
-        `http://farmconnect-backend-n6mx.onrender.com/api/orders/${orderId}/status`,
+        `https://farmconnect-backend-n6mx.onrender.com/api/orders/${orderId}/status`,
         {
           method: "PUT",
           headers: {

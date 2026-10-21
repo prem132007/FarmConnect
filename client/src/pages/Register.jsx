@@ -158,7 +158,7 @@ function Register() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://farmconnect-backend-n6mx.onrender.com/api/auth/register",
+        "https://farmconnect-backend-n6mx.onrender.com/api/auth/register",
         {
           name: formData.name.trim(),
           email: formData.email.trim(),

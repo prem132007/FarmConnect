@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../css/CustomerNotifications.css";
 
-const API_URL = "http://farmconnect-backend-n6mx.onrender.com/api";
+const API_URL = "https://farmconnect-backend-n6mx.onrender.com/api";
 
 function getCustomerId() {
   try {

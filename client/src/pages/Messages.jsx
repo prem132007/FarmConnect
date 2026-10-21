@@ -42,7 +42,7 @@ function Messages() {
                 }
 
                 const response = await fetch(
-                    "http://farmconnect-backend-n6mx.onrender.com/api/messages/users",
+                    "https://farmconnect-backend-n6mx.onrender.com/api/messages/users",
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -86,7 +86,7 @@ function Messages() {
                 const token = localStorage.getItem("token");
 
                 const response = await fetch(
-                    `http://farmconnect-backend-n6mx.onrender.com/api/messages/${selectedUser._id}`,
+                    `https://farmconnect-backend-n6mx.onrender.com/api/messages/${selectedUser._id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -130,7 +130,7 @@ function Messages() {
             const token = localStorage.getItem("token");
 
             const response = await fetch(
-                "http://farmconnect-backend-n6mx.onrender.com/api/messages",
+                "https://farmconnect-backend-n6mx.onrender.com/api/messages",
                 {
                     method: "POST",
                     headers: {

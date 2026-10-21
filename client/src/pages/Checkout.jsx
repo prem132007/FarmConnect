@@ -96,10 +96,10 @@ function Checkout() {
     }
 
     if (image.startsWith("uploads/")) {
-      return `http://farmconnect-backend-n6mx.onrender.com/${image}`;
+      return `https://farmconnect-backend-n6mx.onrender.com/${image}`;
     }
 
-    return `http://farmconnect-backend-n6mx.onrender.com/uploads/${image}`;
+    return `https://farmconnect-backend-n6mx.onrender.com/uploads/${image}`;
   };
 
   // ==========================
@@ -290,7 +290,7 @@ function Checkout() {
         // ==========================
 
         await axios.post(
-          "http://farmconnect-backend-n6mx.onrender.com/api/orders",
+          "https://farmconnect-backend-n6mx.onrender.com/api/orders",
           orderData
         );
       }

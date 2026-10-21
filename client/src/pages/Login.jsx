@@ -78,7 +78,7 @@ function Login() {
       // =================================================
 
       const response = await axios.post(
-        "http://farmconnect-backend-n6mx.onrender.com/api/auth/login",
+        "https://farmconnect-backend-n6mx.onrender.com/api/auth/login",
         {
           email,
           password,

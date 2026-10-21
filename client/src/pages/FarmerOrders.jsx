@@ -45,7 +45,7 @@ function FarmerOrders() {
       }
 
       const response = await axios.get(
-        `http://farmconnect-backend-n6mx.onrender.com/api/orders/farmer/${user.id}`
+        `https://farmconnect-backend-n6mx.onrender.com/api/orders/farmer/${user.id}`
       );
 
       setOrders(
@@ -78,7 +78,7 @@ function FarmerOrders() {
   const updateStatus = async (orderId, status) => {
     try {
       const response = await axios.put(
-        `http://farmconnect-backend-n6mx.onrender.com/api/orders/${orderId}/status`,
+        `https://farmconnect-backend-n6mx.onrender.com/api/orders/${orderId}/status`,
         {
           status,
         }

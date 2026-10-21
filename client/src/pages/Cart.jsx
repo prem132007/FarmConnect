@@ -151,11 +151,11 @@ function Cart() {
 
     // If database stores uploads/filename.jpg
     if (cleanImage.startsWith("uploads/")) {
-      return `http://farmconnect-backend-n6mx.onrender.com/${cleanImage}`;
+      return `https://farmconnect-backend-n6mx.onrender.com/${cleanImage}`;
     }
 
     // If database stores only filename.jpg
-    return `http://farmconnect-backend-n6mx.onrender.com/uploads/${cleanImage}`;
+    return `https://farmconnect-backend-n6mx.onrender.com/uploads/${cleanImage}`;
   };
 
   // Total Amount

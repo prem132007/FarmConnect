@@ -72,7 +72,7 @@ function Home() {
       setLoading(true);
 
       const response = await axios.get(
-        "http://farmconnect-backend-n6mx.onrender.com/api/products"
+        "https://farmconnect-backend-n6mx.onrender.com/api/products"
       );
 
       setProducts(response.data || []);
@@ -105,11 +105,11 @@ function Home() {
 
     // Database stores uploads/filename.jpg
     if (imagePath.startsWith("uploads/")) {
-      return `http://farmconnect-backend-n6mx.onrender.com/${imagePath}`;
+      return `https://farmconnect-backend-n6mx.onrender.com/${imagePath}`;
     }
 
     // Database stores only filename.jpg
-    return `http://farmconnect-backend-n6mx.onrender.com/uploads/${imagePath}`;
+    return `https://farmconnect-backend-n6mx.onrender.com/uploads/${imagePath}`;
   };
 
   // =====================================================

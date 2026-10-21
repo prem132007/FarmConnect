@@ -179,7 +179,7 @@ function MyProducts() {
       }
 
       const response = await axios.get(
-        `http://farmconnect-backend-n6mx.onrender.com/api/products/my-products/${user.id}`
+        `https://farmconnect-backend-n6mx.onrender.com/api/products/my-products/${user.id}`
       );
 
       setProducts(
@@ -232,7 +232,7 @@ function MyProducts() {
 
     try {
       const response = await axios.delete(
-        `http://farmconnect-backend-n6mx.onrender.com/api/products/${productId}`
+        `https://farmconnect-backend-n6mx.onrender.com/api/products/${productId}`
       );
 
       alert(
@@ -364,7 +364,7 @@ function MyProducts() {
       setUpdating(true);
 
       const response = await axios.put(
-        `http://farmconnect-backend-n6mx.onrender.com/api/products/${editingProduct._id}`,
+        `https://farmconnect-backend-n6mx.onrender.com/api/products/${editingProduct._id}`,
         {
           productName,
           category,
@@ -430,10 +430,10 @@ function MyProducts() {
     );
 
     if (imagePath.startsWith("uploads/")) {
-      return `http://farmconnect-backend-n6mx.onrender.com/${imagePath}`;
+      return `https://farmconnect-backend-n6mx.onrender.com/${imagePath}`;
     }
 
-    return `http://farmconnect-backend-n6mx.onrender.com/uploads/${imagePath}`;
+    return `https://farmconnect-backend-n6mx.onrender.com/uploads/${imagePath}`;
   };
 
   // =====================================================

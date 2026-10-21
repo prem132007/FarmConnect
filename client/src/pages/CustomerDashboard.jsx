@@ -74,7 +74,7 @@ function CustomerDashboard() {
       // ==========================
 
       const response = await axios.get(
-        `http://farmconnect-backend-n6mx.onrender.com/api/orders/customer-dashboard/${userId}`
+        `https://farmconnect-backend-n6mx.onrender.com/api/orders/customer-dashboard/${userId}`
       );
 
       setStats({
@@ -120,7 +120,7 @@ function CustomerDashboard() {
       }
 
       const response = await axios.get(
-        `http://farmconnect-backend-n6mx.onrender.com/api/orders/customer/${userId}`
+        `https://farmconnect-backend-n6mx.onrender.com/api/orders/customer/${userId}`
       );
 
       setMyOrders(Array.isArray(response.data) ? response.data : []);

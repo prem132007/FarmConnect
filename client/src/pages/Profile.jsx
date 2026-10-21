@@ -95,7 +95,7 @@ function Profile() {
       setLoading(true);
 
       const response = await fetch(
-        `http://farmconnect-backend-n6mx.onrender.com/api/users/${userId}/profile`
+        `https://farmconnect-backend-n6mx.onrender.com/api/users/${userId}/profile`
       );
 
       const data = await response.json();
@@ -263,7 +263,7 @@ function Profile() {
       }
 
       const response = await fetch(
-        `http://farmconnect-backend-n6mx.onrender.com/api/users/${userId}/profile`,
+        `https://farmconnect-backend-n6mx.onrender.com/api/users/${userId}/profile`,
         {
           method: "PUT",
           headers: {

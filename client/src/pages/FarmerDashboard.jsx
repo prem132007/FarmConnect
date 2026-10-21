@@ -65,7 +65,7 @@ function FarmerDashboard() {
       // ==========================
 
       const response = await axios.get(
-        `http://farmconnect-backend-n6mx.onrender.com/api/dashboard/farmer/${userId}`
+        `https://farmconnect-backend-n6mx.onrender.com/api/dashboard/farmer/${userId}`
       );
 
       setStats({
