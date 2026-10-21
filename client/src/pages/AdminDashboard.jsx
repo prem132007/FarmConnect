@@ -31,8 +31,7 @@ function AdminDashboard() {
       setError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/dashboard/admin"
-      );
+        "https://farmconnect-backend-n6mx.onrender.com/api/dashboard/admin");
 
       if (!response.ok) {
         throw new Error("Failed to fetch admin dashboard data");

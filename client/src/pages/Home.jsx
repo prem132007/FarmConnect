@@ -72,7 +72,7 @@ function Home() {
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:5000/api/products"
+        "http://farmconnect-backend-n6mx.onrender.com/api/products"
       );
 
       setProducts(response.data || []);
@@ -105,11 +105,11 @@ function Home() {
 
     // Database stores uploads/filename.jpg
     if (imagePath.startsWith("uploads/")) {
-      return `http://localhost:5000/${imagePath}`;
+      return `http://farmconnect-backend-n6mx.onrender.com/${imagePath}`;
     }
 
     // Database stores only filename.jpg
-    return `http://localhost:5000/uploads/${imagePath}`;
+    return `http://farmconnect-backend-n6mx.onrender.com/uploads/${imagePath}`;
   };
 
   // =====================================================

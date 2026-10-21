@@ -78,7 +78,7 @@ function Login() {
       // =================================================
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "http://farmconnect-backend-n6mx.onrender.com/api/auth/login",
         {
           email,
           password,
@@ -141,7 +141,7 @@ function Login() {
       if (error.response) {
         setError(
           error.response.data?.message ||
-            t("invalidEmailPassword")
+          t("invalidEmailPassword")
         );
       }
 

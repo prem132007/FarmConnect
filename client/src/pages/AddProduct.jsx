@@ -138,13 +138,12 @@ function AddProduct() {
       // =================================================
 
       const response = await axios.post(
-        "http://localhost:5000/api/products/add",
-        data
+        "https://farmconnect-backend-n6mx.onrender.com/api/products/add", data
       );
 
       alert(
         response.data?.message ||
-          t("addProductSuccessfully")
+        t("addProductSuccessfully")
       );
 
       // =================================================
@@ -175,7 +174,7 @@ function AddProduct() {
       if (error.response) {
         setError(
           error.response.data?.message ||
-            t("failedToAddProduct")
+          t("failedToAddProduct")
         );
       } else if (error.request) {
         setError(t("unableToConnectServer"));

@@ -35,7 +35,7 @@ function AdminUsers() {
       setError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/users"
+        "http://farmconnect-backend-n6mx.onrender.com/api/users"
       );
 
       if (!response.ok) {
@@ -86,7 +86,7 @@ function AdminUsers() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/users/${userId}`,
+        `http://farmconnect-backend-n6mx.onrender.com/api/users/${userId}`,
         {
           method: "DELETE",
         }
@@ -143,7 +143,7 @@ function AdminUsers() {
       setUpdatingUser(userId);
 
       const response = await fetch(
-        `http://localhost:5000/api/users/${userId}/role`,
+        `http://farmconnect-backend-n6mx.onrender.com/api/users/${userId}/role`,
         {
           method: "PUT",
           headers: {
@@ -174,14 +174,14 @@ function AdminUsers() {
 
       alert(
         data.message ||
-          t("userRoleUpdatedSuccessfully")
+        t("userRoleUpdatedSuccessfully")
       );
     } catch (error) {
       console.error("Update Role Error:", error);
 
       alert(
         error.message ||
-          t("unableToUpdateUserRole")
+        t("unableToUpdateUserRole")
       );
 
       fetchUsers();

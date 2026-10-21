@@ -21,8 +21,7 @@ function FeaturedProducts() {
       setError("");
 
       const response = await axios.get(
-        "http://localhost:5000/api/products"
-      );
+        "https://farmconnect-backend-n6mx.onrender.com/api/products");
 
       console.log("Home Products:", response.data);
 
@@ -36,7 +35,7 @@ function FeaturedProducts() {
 
       setError(
         error.response?.data?.message ||
-          "Unable to load products."
+        "Unable to load products."
       );
 
       setProducts([]);
@@ -64,7 +63,7 @@ function FeaturedProducts() {
     }
 
     // Uploaded image from FarmConnect server
-    return `http://localhost:5000/uploads/${product.image}`;
+    return `https://farmconnect-backend-n6mx.onrender.com/uploads/${product.image}`;
   };
 
 
@@ -391,9 +390,9 @@ function FeaturedProducts() {
 
                         {product.description.length > 70
                           ? `${product.description.substring(
-                              0,
-                              70
-                            )}...`
+                            0,
+                            70
+                          )}...`
                           : product.description}
 
                       </p>

@@ -179,7 +179,7 @@ function MyProducts() {
       }
 
       const response = await axios.get(
-        `http://localhost:5000/api/products/my-products/${user.id}`
+        `http://farmconnect-backend-n6mx.onrender.com/api/products/my-products/${user.id}`
       );
 
       setProducts(
@@ -195,7 +195,7 @@ function MyProducts() {
 
       alert(
         error.response?.data?.message ||
-          t("unableToLoadProducts")
+        t("unableToLoadProducts")
       );
     } finally {
       setLoading(false);
@@ -232,12 +232,12 @@ function MyProducts() {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/products/${productId}`
+        `http://farmconnect-backend-n6mx.onrender.com/api/products/${productId}`
       );
 
       alert(
         response.data?.message ||
-          t("productDeletedSuccessfully")
+        t("productDeletedSuccessfully")
       );
 
       setProducts((previousProducts) =>
@@ -253,7 +253,7 @@ function MyProducts() {
 
       alert(
         error.response?.data?.message ||
-          t("unableToLoadProducts")
+        t("unableToLoadProducts")
       );
     }
   };
@@ -364,7 +364,7 @@ function MyProducts() {
       setUpdating(true);
 
       const response = await axios.put(
-        `http://localhost:5000/api/products/${editingProduct._id}`,
+        `http://farmconnect-backend-n6mx.onrender.com/api/products/${editingProduct._id}`,
         {
           productName,
           category,
@@ -377,7 +377,7 @@ function MyProducts() {
 
       alert(
         response.data?.message ||
-          t("productUpdatedSuccessfully")
+        t("productUpdatedSuccessfully")
       );
 
       setEditingProduct(null);
@@ -391,7 +391,7 @@ function MyProducts() {
 
       alert(
         error.response?.data?.message ||
-          t("unableToLoadProducts")
+        t("unableToLoadProducts")
       );
     } finally {
       setUpdating(false);
@@ -430,10 +430,10 @@ function MyProducts() {
     );
 
     if (imagePath.startsWith("uploads/")) {
-      return `http://localhost:5000/${imagePath}`;
+      return `http://farmconnect-backend-n6mx.onrender.com/${imagePath}`;
     }
 
-    return `http://localhost:5000/uploads/${imagePath}`;
+    return `http://farmconnect-backend-n6mx.onrender.com/uploads/${imagePath}`;
   };
 
   // =====================================================

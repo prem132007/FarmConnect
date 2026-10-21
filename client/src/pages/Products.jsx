@@ -25,7 +25,7 @@ function Products() {
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:5000/api/products"
+        "http://farmconnect-backend-n6mx.onrender.com/api/products"
       );
 
       setProducts(response.data);
@@ -304,7 +304,7 @@ function Products() {
 
                   {product.image ? (
                     <img
-                      src={`http://localhost:5000/uploads/${product.image}`}
+                      src={`https://farmconnect-backend-n6mx.onrender.com/uploads/${product.image}`}
                       alt={product.productName}
                       className="product-image"
                     />

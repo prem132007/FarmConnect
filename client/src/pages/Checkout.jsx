@@ -96,10 +96,10 @@ function Checkout() {
     }
 
     if (image.startsWith("uploads/")) {
-      return `http://localhost:5000/${image}`;
+      return `http://farmconnect-backend-n6mx.onrender.com/${image}`;
     }
 
-    return `http://localhost:5000/uploads/${image}`;
+    return `http://farmconnect-backend-n6mx.onrender.com/uploads/${image}`;
   };
 
   // ==========================
@@ -179,8 +179,7 @@ function Checkout() {
 
         if (quantity < 1) {
           throw new Error(
-            `${t("invalidQuantity")} ${
-              item.productName || t("farmProductFallback")
+            `${t("invalidQuantity")} ${item.productName || t("farmProductFallback")
             }.`
           );
         }
@@ -192,8 +191,7 @@ function Checkout() {
 
         if (isNaN(price) || price < 0) {
           throw new Error(
-            `${t("invalidPrice")} ${
-              item.productName || t("farmProductFallback")
+            `${t("invalidPrice")} ${item.productName || t("farmProductFallback")
             }.`
           );
         }
@@ -208,8 +206,7 @@ function Checkout() {
           quantity > availableQuantity
         ) {
           throw new Error(
-            `${t("onlyQuantityAvailable")} ${availableQuantity} ${
-              item.productName || t("farmProductFallback")
+            `${t("onlyQuantityAvailable")} ${availableQuantity} ${item.productName || t("farmProductFallback")
             } ${t("availableProduct")}`
           );
         }
@@ -293,7 +290,7 @@ function Checkout() {
         // ==========================
 
         await axios.post(
-          "http://localhost:5000/api/orders",
+          "http://farmconnect-backend-n6mx.onrender.com/api/orders",
           orderData
         );
       }
@@ -327,8 +324,8 @@ function Checkout() {
 
       setError(
         error.response?.data?.message ||
-          error.message ||
-          t("unableToPlaceOrder")
+        error.message ||
+        t("unableToPlaceOrder")
       );
     } finally {
       setLoading(false);

@@ -22,7 +22,7 @@ function AdminOrders() {
       setError("");
 
       const response = await fetch(
-        "http://localhost:5000/api/orders/admin"
+        "http://farmconnect-backend-n6mx.onrender.com/api/orders/admin"
       );
 
       if (!response.ok) {
@@ -58,7 +58,7 @@ function AdminOrders() {
       setUpdatingOrder(orderId);
 
       const response = await fetch(
-        `http://localhost:5000/api/orders/${orderId}/status`,
+        `http://farmconnect-backend-n6mx.onrender.com/api/orders/${orderId}/status`,
         {
           method: "PUT",
           headers: {
@@ -180,8 +180,8 @@ function AdminOrders() {
       language === "hi"
         ? "hi-IN"
         : language === "mr"
-        ? "mr-IN"
-        : "en-IN";
+          ? "mr-IN"
+          : "en-IN";
 
     return new Date(date).toLocaleDateString(locale, {
       day: "2-digit",

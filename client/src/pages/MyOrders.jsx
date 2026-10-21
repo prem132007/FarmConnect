@@ -49,7 +49,7 @@ function MyOrders() {
       }
 
       const response = await axios.get(
-        `http://localhost:5000/api/orders/customer/${customerId}`
+        `http://farmconnect-backend-n6mx.onrender.com/api/orders/customer/${customerId}`
       );
 
       setOrders(Array.isArray(response.data) ? response.data : []);
@@ -92,7 +92,7 @@ function MyOrders() {
       }));
 
       const response = await axios.get(
-        `http://localhost:5000/api/orders/customer/${customerId}/${orderId}/tracking`
+        `http://farmconnect-backend-n6mx.onrender.com/api/orders/customer/${customerId}/${orderId}/tracking`
       );
 
       setTrackingData((previous) => ({
@@ -247,8 +247,8 @@ function MyOrders() {
       language === "hi"
         ? "hi-IN"
         : language === "mr"
-        ? "mr-IN"
-        : "en-IN";
+          ? "mr-IN"
+          : "en-IN";
 
     return parsedDate.toLocaleDateString(locale, {
       day: "2-digit",
@@ -337,9 +337,8 @@ function MyOrders() {
             {(data.stages || []).map((stage) => (
               <div
                 key={stage.key}
-                className={`tracking-stage ${
-                  stage.completed ? "completed" : ""
-                }`}
+                className={`tracking-stage ${stage.completed ? "completed" : ""
+                  }`}
               >
                 <div className="tracking-stage-marker">
                   {stage.completed ? "✓" : ""}
