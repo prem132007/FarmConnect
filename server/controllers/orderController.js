@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const Order = require("../models/Order");
 const Product = require("../models/Product");
 const Notification = require("../models/Notification");
+const User = require("../models/User");
+const { sendOrderStatusEmail } = require("../orderEmailService");
 
 const placeOrder = async (req, res) => {
   try {
@@ -195,6 +197,7 @@ const getFarmerOrders = async (req, res) => {
 };
 
 
+
 /* ==========================
    UPDATE ORDER STATUS
 ========================== */
@@ -220,7 +223,7 @@ const updateOrderStatus = async (req, res) => {
       });
     }
 
-    // Find the order before updating so we can compare statuses.
+    // Find the existing order.
     const existingOrder = await Order.findById(id);
 
     if (!existingOrder) {
@@ -246,7 +249,7 @@ const updateOrderStatus = async (req, res) => {
     } else if (status === "Delivered") {
       updateData.deliveryStatus = "Delivered";
 
-      // Set the delivery timestamp only on the first transition.
+      // Set delivery timestamp only on first delivery.
       if (previousStatus !== "Delivered") {
         updateData.deliveredAt = new Date();
       }
@@ -274,21 +277,26 @@ const updateOrderStatus = async (req, res) => {
     }
 
     // ==========================
-    // CUSTOMER NOTIFICATION
+    // NOTIFICATION AND EMAIL
     // ==========================
 
-    // Create a notification only when the status actually changes.
+    // Run notifications only when the status changes.
     if (previousStatus !== status) {
       const notificationMessages = {
         Pending: "Your order is pending confirmation.",
         Accepted: "The farmer has accepted your order.",
         Rejected: "Your order has been rejected.",
-        "Ready for Delivery": "Your order is ready for delivery.",
-        "Out for Delivery": "Your order is out for delivery.",
-        Delivered: "Your order has been delivered successfully.",
-        Cancelled: "Your order has been cancelled.",
+        "Ready for Delivery":
+          "Your order is ready for delivery.",
+        "Out for Delivery":
+          "Your order is out for delivery.",
+        Delivered:
+          "Your order has been delivered successfully.",
+        Cancelled:
+          "Your order has been cancelled.",
       };
 
+      // Create in-app notification.
       try {
         await Notification.create({
           customerId: order.customerId,
@@ -301,21 +309,48 @@ const updateOrderStatus = async (req, res) => {
           isRead: false,
         });
       } catch (notificationError) {
-        // Do not report the order update as failed if only
-        // notification creation failed.
         console.error(
           "Notification creation failed:",
-          notificationError
+          notificationError.message
+        );
+      }
+
+      // Send email to the customer.
+      try {
+        const customer = await User.findById(
+          order.customerId
+        ).select("name email");
+
+        if (customer && customer.email) {
+          await sendOrderStatusEmail(customer, order);
+
+          console.log(
+            `Order status email sent successfully for order ${order._id}.`
+          );
+        } else {
+          console.warn(
+            `Customer email not found for order ${order._id}.`
+          );
+        }
+      } catch (emailError) {
+        // Email failure must not undo a successful order update.
+        console.error(
+          "Order status email failed:",
+          emailError.message
         );
       }
     }
 
+    // Return success even if notification or email failed.
     return res.status(200).json({
       message: "Order Status Updated Successfully",
       order,
     });
   } catch (error) {
-    console.error("Update Order Status Error:", error);
+    console.error(
+      "Update Order Status Error:",
+      error.message
+    );
 
     return res.status(500).json({
       message: "Unable to update order status",
