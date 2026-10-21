@@ -7,9 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Global CSS
 import "./index.css";
 
-// Navbar CSS
-import "../CSS/Navbar.css";
-
+// Navbar CSSgit status
+import "./css/Navbar.css";
 
 // App
 import App from "./App.jsx";
