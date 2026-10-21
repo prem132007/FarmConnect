@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useLanguage } from "../context/LanguageContext";
-import "../css/customerDashboard.css"
+import "../css/CustomerDashboard.css"
 
 
 function CustomerDashboard() {
@@ -213,59 +213,59 @@ function CustomerDashboard() {
       {/* ==========================
     MAIN CONTENT
 ========================== */}
-<main className="customer-main-area">
-  <div className="customer-content">
+      <main className="customer-main-area">
+        <div className="customer-content">
 
-    {/* Dashboard header: title left, profile right */}
-    <div className="customer-dashboard-header">
+          {/* Dashboard header: title left, profile right */}
+          <div className="customer-dashboard-header">
 
-      {/* Dashboard title */}
-      <header className="customer-page-heading">
-        <div>
-          <h1>{t("customerDashboard")}</h1>
-          <p>{t("dashboardDescription")}</p>
-        </div>
-      </header>
+            {/* Dashboard title */}
+            <header className="customer-page-heading">
+              <div>
+                <h1>{t("customerDashboard")}</h1>
+                <p>{t("dashboardDescription")}</p>
+              </div>
+            </header>
 
-      {/* Profile avatar and dropdown */}
-      <div className="customer-topbar">
-        <div className="customer-profile">
-          <button
-            type="button"
-            className="customer-avatar"
-            onClick={() => setProfileMenuOpen((open) => !open)}
-            aria-label="Open customer profile menu"
-            aria-expanded={profileMenuOpen}
-          >
-            {customerInitial}
-          </button>
+            {/* Profile avatar and dropdown */}
+            <div className="customer-topbar">
+              <div className="customer-profile">
+                <button
+                  type="button"
+                  className="customer-avatar"
+                  onClick={() => setProfileMenuOpen((open) => !open)}
+                  aria-label="Open customer profile menu"
+                  aria-expanded={profileMenuOpen}
+                >
+                  {customerInitial}
+                </button>
 
-          {profileMenuOpen && (
-            <div className="customer-profile-dropdown">
-              <Link
-                to="/profile"
-                onClick={() => setProfileMenuOpen(false)}
-              >
-                👤 {t("myProfile")}
-              </Link>
+                {profileMenuOpen && (
+                  <div className="customer-profile-dropdown">
+                    <Link
+                      to="/profile"
+                      onClick={() => setProfileMenuOpen(false)}
+                    >
+                      👤 {t("myProfile")}
+                    </Link>
 
-              <button
-                type="button"
-                onClick={() => {
-                  setProfileMenuOpen(false);
-                  handleLogout();
-                }}
-              >
-                🚪 {t("logout")}
-              </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setProfileMenuOpen(false);
+                        handleLogout();
+                      }}
+                    >
+                      🚪 {t("logout")}
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
-          )}
-        </div>
-      </div>
 
-    </div>
+          </div>
 
-    {/* Keep your existing error message, statistics,
+          {/* Keep your existing error message, statistics,
         orders panel, and quick actions below this point. */}
 
 
