@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import "../CSS/Profile.css";
+import "../css/Profile.css";
 import { useLanguage } from "../context/LanguageContext";
 
 function Profile() {

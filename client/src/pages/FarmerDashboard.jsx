@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../CSS/FarmerDashboard.css";
+import "../css/FarmerDashboard.css";
 import { useLanguage } from "../context/LanguageContext";
 
 function FarmerDashboard() {

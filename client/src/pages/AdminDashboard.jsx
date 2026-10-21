@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 
-import "../CSS/AdminDashboard.css";
+import "../css/AdminDashboard.css";
 import { useLanguage } from "../context/LanguageContext";
 
 function AdminDashboard() {

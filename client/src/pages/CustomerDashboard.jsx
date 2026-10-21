@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useLanguage } from "../context/LanguageContext";
-import "../CSS/customerDashboard.css"
+import "../css/customerDashboard.css"
 
 
 function CustomerDashboard() {

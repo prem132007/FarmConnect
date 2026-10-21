@@ -7,7 +7,7 @@ import Categories from "../components/Categories";
 import WhyChoose from "../components/WhyChoose";
 import Footer from "../components/Footer";
 
-import "../CSS/Home.css";
+import "../css/Home.css";
 import hero from "../assets/hero.png";
 
 import { useLanguage } from "../context/LanguageContext";

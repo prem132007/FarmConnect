@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-import "../CSS/Login.css";
+import "../css/Login.css";
 import logo from "../assets/logo.png";
 
 import { useLanguage } from "../context/LanguageContext";

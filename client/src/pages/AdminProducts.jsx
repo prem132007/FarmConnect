@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import "../CSS/AdminProducts.css";
+import "../css/AdminProducts.css";
 import { useLanguage } from "../context/LanguageContext";
 
 function AdminProducts() {

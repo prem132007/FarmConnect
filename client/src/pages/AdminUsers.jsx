@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useLanguage } from "../context/LanguageContext";
-import "../CSS/AdminUsers.css";
+import "../css/AdminUsers.css";
 
 function AdminUsers() {
   const { t } = useLanguage();

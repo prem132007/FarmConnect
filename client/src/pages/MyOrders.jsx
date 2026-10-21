@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import "../CSS/MyOrders.css";
+import "../css/MyOrders.css";
 import { useLanguage } from "../context/LanguageContext";
 
 function MyOrders() {

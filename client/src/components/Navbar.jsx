@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import logo from "../assets/logo.png";
-import "../CSS/Navbar.css";
+import "../css/Navbar.css";
 
 import { useLanguage } from "../context/LanguageContext";
 

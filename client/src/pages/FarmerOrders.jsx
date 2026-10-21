@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../CSS/FarmerOrders.css";
+import "../css/FarmerOrders.css";
 import { useLanguage } from "../context/LanguageContext";
 
 function FarmerOrders() {

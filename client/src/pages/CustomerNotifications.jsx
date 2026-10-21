@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../CSS/CustomerNotifications.css";
+import "../css/CustomerNotifications.css";
 
 const API_URL = "http://localhost:5000/api";
 
@@ -53,7 +53,7 @@ function CustomerNotifications() {
       console.error("Fetch notifications error:", err);
       setError(
         err.response?.data?.message ||
-          "Unable to load notifications. Please try again."
+        "Unable to load notifications. Please try again."
       );
     } finally {
       setLoading(false);
@@ -98,7 +98,7 @@ function CustomerNotifications() {
       console.error("Mark as read error:", err);
       setError(
         err.response?.data?.message ||
-          "Could not mark the notification as read. Please try again."
+        "Could not mark the notification as read. Please try again."
       );
     } finally {
       setMarkingReadIds((ids) =>
@@ -165,9 +165,8 @@ function CustomerNotifications() {
             return (
               <article
                 key={notification._id}
-                className={`notification-card ${
-                  notification.isRead ? "read" : "unread"
-                }`}
+                className={`notification-card ${notification.isRead ? "read" : "unread"
+                  }`}
               >
                 <div className="notification-icon" aria-hidden="true">
                   {notification.isRead ? "✓" : "●"}

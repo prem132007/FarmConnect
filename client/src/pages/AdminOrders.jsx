@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../CSS/AdminOrders.css";
+import "../css/AdminOrders.css";
 
 import { useLanguage } from "../context/LanguageContext";
 

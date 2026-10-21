@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import "../CSS/MyProducts.css";
+import "../css/MyProducts.css";
 import { useLanguage } from "../context/LanguageContext";
 
 function MyProducts() {
