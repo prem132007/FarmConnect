@@ -8,7 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 // Navbar CSS
-import "./CSS/Navbar.css";
+import "../CSS/Navbar.css";
+
 
 // App
 import App from "./App.jsx";
