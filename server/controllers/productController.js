@@ -89,7 +89,7 @@ const updateProduct = async (req, res) => {
     const updatedProduct = await Product.findByIdAndUpdate(
       id,
       req.body,
-      { new: true }
+      { returnDocument: "after" }
     );
 
     res.status(200).json({

@@ -291,7 +291,7 @@ const updateUserRole = async (req, res) => {
       id,
       { role },
       {
-        new: true,
+        returnDocument: "after",
         runValidators: true,
       }
     ).select("-password");

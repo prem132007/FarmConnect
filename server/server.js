@@ -14,8 +14,6 @@ const notificationRoutes = require("./routes/notificationRoutes");
 
 
 require("dotenv").config();
-console.log("MONGODB_URI:", process.env.MONGODB_URI);
-
 const connectDB = require("./config/db");
 
 const dns = require("dns");

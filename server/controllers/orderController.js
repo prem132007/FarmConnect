@@ -265,7 +265,7 @@ const updateOrderStatus = async (req, res) => {
       id,
       { $set: updateData },
       {
-        new: true,
+        returnDocument: "after",
         runValidators: true,
       }
     );
