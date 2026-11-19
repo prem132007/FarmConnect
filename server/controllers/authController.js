@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { sendVerificationOTP } = require("./emailVerificationController");
 
 // ==========================
 // Register User
@@ -22,10 +23,7 @@ const registerUser = async (req, res) => {
       role,
     } = req.body;
 
-    // ==========================
-    // Check Required Fields
-    // ==========================
-
+    // Check required fields
     if (
       !name ||
       !email ||
@@ -43,12 +41,28 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // ==========================
-    // Check Email
-    // ==========================
+    // Normalize email
+    const normalizedEmail = email.toLowerCase().trim();
 
+    // Basic email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(normalizedEmail)) {
+      return res.status(400).json({
+        message: "Please enter a valid email address",
+      });
+    }
+
+    // Only allow farmer or customer registration
+    if (role && !["farmer", "customer"].includes(role)) {
+      return res.status(400).json({
+        message: "Invalid registration role",
+      });
+    }
+
+    // Check if user already exists
     const userExists = await User.findOne({
-      email: email.toLowerCase().trim(),
+      email: normalizedEmail,
     });
 
     if (userExists) {
@@ -57,19 +71,13 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // ==========================
-    // Hash Password
-    // ==========================
-
+    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // ==========================
-    // Create User
-    // ==========================
-
+    // Create user with email unverified
     const user = await User.create({
       name: name.trim(),
-      email: email.toLowerCase().trim(),
+      email: normalizedEmail,
       password: hashedPassword,
       phone: phone.trim(),
       gender,
@@ -80,35 +88,28 @@ const registerUser = async (req, res) => {
       pincode: pincode.trim(),
       country: country || "India",
       role: role || "customer",
+      isEmailVerified: false,
     });
 
-    // ==========================
-    // Registration Response
-    // ==========================
+    // Send verification OTP
+    await sendVerificationOTP(normalizedEmail);
 
-    res.status(201).json({
-      message: "User Registered Successfully",
-
+    // Registration response
+    return res.status(201).json({
+      message: "Registration successful. Please check your email for the OTP.",
       user: {
         id: user._id,
         name: user.name,
         email: user.email,
-        phone: user.phone,
-        gender: user.gender,
-        dateOfBirth: user.dateOfBirth,
-        address: user.address,
-        city: user.city,
-        state: user.state,
-        pincode: user.pincode,
-        country: user.country,
         role: user.role,
+        isEmailVerified: user.isEmailVerified,
       },
     });
   } catch (error) {
     console.error("Register User Error:", error);
 
-    res.status(500).json({
-      message: error.message,
+    return res.status(500).json({
+      message: "Registration failed. Please try again.",
     });
   }
 };
@@ -159,6 +160,17 @@ const loginUser = async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({
         message: "Invalid Email or Password",
+      });
+    }
+    
+    // ==========================
+    // Check email verification
+    // ==========================
+    
+    if (!user.isEmailVerified) {
+      return res.status(403).json({
+        message: "Please verify your email before logging in.",
+        emailVerificationRequired: true,
       });
     }
 
